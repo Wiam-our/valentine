@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .no {
+            background-color: #666;
+            color: white;
+        }
+        .image-container {
+            margin-top: 20px;
+            display: none;
+        }
+        .valentine-img {
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question">Would you be my Valentine? 💕</p>
+        <button class="btn yes" id="yesBtn" onclick="accept()">Yes</button>
+        <button class="btn no" id="noBtn" onclick="reject()">No</button>
+    </div>
+    
+    <div class="image-container" id="imageContainer">
+        <img src="Our Picture 💖/love.jpg" alt="Our Picture 💖" class="valentine-img">
+    </div>
+
+    <script>
+        let count = 0;
+        function reject() {
+            count++;
+            let yesBtn = document.getElementById("yesBtn");
+            let noBtn = document.getElementById("noBtn");
+
+            if (count === 1) {
+                noBtn.innerText = "Are you sure?";
+            } else if (count === 2) {
+                noBtn.innerText = "Think about it";
+            } else {
+                noBtn.style.display = "none"; // Hides the "No" button after 3 clicks
+            }
+            
+            yesBtn.style.fontSize = (20 + count * 10) + "px"; // Increases the size of Yes button
+        }
+
+        function accept() {
+            alert("Yay! Can't wait for our Valentine's Day 💖");
+            document.getElementById("imageContainer").style.display = "block"; // Show the image when "Yes" is clicked
+        }
+    </script>
+</body>
+</html>
